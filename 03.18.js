@@ -9,9 +9,21 @@ function forStatement() {
 
   let str = "";
 
-  for (let i = 0; i < 9; i++) {
-    str = str + i;
+  // initialize a variable
+
+  // define a condition to keep the for running, or stop
+
+  // define to increment/decrement
+  for (let i = 10; i > 0; i--) {
+    str = str + i; // this is doing a string concat because you can use + to concat to strings
+    // Js is casting the integer i to str
+
+    console.log("run # ", i);
+    // Body
   }
+
+  // i == 1  -> i > 0  ...... true
+  // i == 0 -> i > 0  ....... false
 
   console.log(str);
   // expected output: "012345678"
@@ -24,20 +36,30 @@ function forStatement() {
 function fillExample() {
   console.log("Array fill example");
 
-  const array1 = [1, 2, 3, 4];
+  const array1 = [1, 2, 3, 4, 5, 6, 7, 8];
   // fill with 0 from position 2 until position 4
-  console.log(array1.fill(0, 2, 4));
+  // console.log(array1.fill(0, 2, 6));
   // expected output: [1, 2, 0, 0]
 
   // fill with 5 from position 1
-  console.log(array1.fill(5, 1));
+  // console.log(array1.fill(5, 1));
   // expected output: [1, 5, 5, 5]
 
   function myFill(array, value, start, end) {
     // returns the modified array
+    let myEnd = end;
+    if (end > array.length) {
+      myEnd = array.length;
+    }
+
+    for (let index = start; index <= myEnd; index++) {
+      array[index] = value;
+    }
+
+    return array;
   }
 
-  // console.log(myFill(array1, 100, 1));
+  console.log(myFill(array1, 100, 2, 4));
 }
 
 /**
@@ -169,9 +191,9 @@ function reduceExample() {
 }
 
 function main() {
-  forStatement();
+  // forStatement();
 
-  // fillExample();
+  fillExample();
 
   // filterExample();
 
