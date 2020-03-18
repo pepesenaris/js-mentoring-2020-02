@@ -149,22 +149,32 @@ function findExample() {
 
   const array1 = [5, 12, 8, 130, 44];
 
-  const found = array1.find(element => element > 10);
+  const found = array1.find(element => element > 400);
 
   console.log("Native find function found: ", found);
   // expected output: 12
 
-  function myFind(array, predicate) {
+  function myFind(array, callback) {
     // return array.find(predicate);
     // returns The value of the first element in the array
     // that satisfies the provided testing function;
     // otherwise, undefined is returned.
+
+    for (let index = 0; index < array.length; index++) {
+      const element = array[index];
+      console.log("my index now is: ", index);
+      if (callback(element)) {
+        return element;
+      }
+    }
+
+    return undefined;
   }
 
   const result = myFind(
     [
-      { age: 12, name: "Maria" },
       { age: 34, name: "John" },
+      { age: 12, name: "Maria" },
       { age: 18, name: "Lena" },
       { age: 45, name: "Ana" },
       { age: 5, name: "Tom" }
@@ -240,9 +250,9 @@ function main() {
 
   // fillExample();
 
-  filterExample();
+  // filterExample();
 
-  // findExample();
+  findExample();
 
   // mapExample();
 
