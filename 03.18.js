@@ -124,7 +124,7 @@ function mapExample() {
   // expected output: Array [2, 8, 18, 32]
 
   function myMap(array, callback) {
-    // A new array with each element being the result of the callback function.
+    // returns A new array with each element being the result of the callback function.
   }
 
   const importantInfo = myMap(
@@ -133,6 +133,39 @@ function mapExample() {
   );
 
   console.log(importantInfo);
+}
+
+/**
+ * Reduce
+ * https://devdocs.io/javascript/global_objects/array/reduce
+ */
+function reduceExample() {
+  console.log("Reduce example");
+  const array1 = [1, 2, 3, 4];
+  const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
+  // 1 + 2 + 3 + 4
+  console.log(array1.reduce(reducer));
+  // expected output: 10
+
+  // 5 + 1 + 2 + 3 + 4
+  console.log(array1.reduce(reducer, 5));
+  // expected output: 15
+
+  function myReduce(array, callback, initialValue) {
+    // callbacks receives 2 parameters:
+    // - accumulator
+    // - currentValue
+    // returns The value that results from the reduction.
+  }
+
+  const totalSum = myReduce(
+    [1, 2, 3, 4, 5],
+    (accumulator, currentValue) => accumulator + currentValue,
+    0
+  );
+
+  console.log("Total sum is: ", totalSum);
 }
 
 function main() {
@@ -145,6 +178,8 @@ function main() {
   // findExample();
 
   // mapExample();
+
+  // reduceExample();
 }
 
 main();
