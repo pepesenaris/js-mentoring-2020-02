@@ -78,21 +78,66 @@ let filterExample = function() {
     "present"
   ];
 
+  // const result = words.filter(function(word) {
+  //   return word.length > 6;
+  // });
+
+  function myName(parameter1, parameter2) {
+    console.log("Im a function");
+  }
+
+  var anotherFunction = function(param1, param2, param3) {
+    console.log(param1, param2, param3);
+  };
+
+  var number = 1;
+
+  var str = "hello";
+
+  myName(1, 2);
+
+  anotherFunction(4, 5, 6);
+
+  // // lambda function
+  // var myFunction = (param1, param2) => {
+  //   return param1 + param2;
+  //   // this
+  // };
+
+  // return;
+
   const result = words.filter(word => word.length > 6);
 
   console.log(result);
   // expected output: Array ["exuberant", "destruction", "present"]
 
-  function myFilter(array, predicate) {
+  function myFilter(array, callback) {
     // returns a new array
+    // return array.filter(callback);
+
+    const result = [];
+    let resultIndex = 0;
+
+    // apply the callback to each element
+    // select those for which the result is true
+    for (let index = 0; index < array.length; index++) {
+      const element = array[index];
+      if (callback(element)) {
+        result[resultIndex] = element;
+        resultIndex++;
+        // result.push(element);
+      }
+    }
+
+    return result;
   }
 
-  // console.log(
-  //   myFilter(
-  //     [1, 2, 43287, 11, 53, 7, 12, 421, 81432],
-  //     number => number % 2 === 0
-  //   )
-  // );
+  console.log(
+    myFilter(
+      [1, 2, 43287, 11, 53, 7, 12, 421, 81432],
+      number => number % 2 === 0
+    )
+  );
 };
 
 /**
@@ -193,9 +238,9 @@ function reduceExample() {
 function main() {
   // forStatement();
 
-  fillExample();
+  // fillExample();
 
-  // filterExample();
+  filterExample();
 
   // findExample();
 
