@@ -73,12 +73,46 @@ let filterExample = function() {
   // );
 };
 
+function findExample() {
+  console.log("Array find example");
+
+  const array1 = [5, 12, 8, 130, 44];
+
+  const found = array1.find(element => element > 10);
+
+  console.log("Native find function found: ", found);
+  // expected output: 12
+
+  function myFind(array, predicate) {
+    // return array.find(predicate);
+    // returns The value of the first element in the array
+    // that satisfies the provided testing function;
+    // otherwise, undefined is returned.
+  }
+
+  const result = myFind(
+    [
+      { age: 12, name: "Maria" },
+      { age: 34, name: "John" },
+      { age: 18, name: "Lena" },
+      { age: 45, name: "Ana" },
+      { age: 5, name: "Tom" }
+    ],
+    applicant => applicant.age <= 18
+  );
+
+  if (result) console.log(`${result.name} is the first under age applicant`);
+  else console.log("No one found");
+}
+
 function main() {
   forStatement();
 
   // fillExample();
 
   // filterExample();
+
+  findExample();
 }
 
 main();
