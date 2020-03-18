@@ -73,6 +73,10 @@ let filterExample = function() {
   // );
 };
 
+/**
+ * Find
+ * https://devdocs.io/javascript/global_objects/array/find
+ */
 function findExample() {
   console.log("Array find example");
 
@@ -105,6 +109,32 @@ function findExample() {
   else console.log("No one found");
 }
 
+/**
+ * Map
+ * https://devdocs.io/javascript/global_objects/array/map
+ */
+function mapExample() {
+  console.log("map example");
+  const array1 = [1, 4, 9, 16];
+
+  // pass a function to map
+  const map1 = array1.map(x => x * 2);
+
+  console.log(map1);
+  // expected output: Array [2, 8, 18, 32]
+
+  function myMap(array, callback) {
+    // A new array with each element being the result of the callback function.
+  }
+
+  const importantInfo = myMap(
+    ["a", "message", "in caps", "looks", "important"],
+    str => str.toUpperCase()
+  );
+
+  console.log(importantInfo);
+}
+
 function main() {
   forStatement();
 
@@ -112,7 +142,9 @@ function main() {
 
   // filterExample();
 
-  findExample();
+  // findExample();
+
+  // mapExample();
 }
 
 main();
